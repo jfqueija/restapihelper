@@ -7,13 +7,13 @@ from distutils.core import setup
 setup(
     name = 'restapihelper',
     packages = ['restapihelper'],
-    version = '0.1.1',
+    version = '0.1.2',
     description = 'Rest API Helper',
     author = 'José Fº Queija',
     author_email = 'pepekiko@gmail.com',
     url = 'https://github.com/jfqueija/restapihelper',
     download_url = 'https://github.com/jfqueija/restapihelper/tarball/0.1.1',
-    keywords = ['Rest','API','Caller','Helper'],    
+    keywords = ['restapihelper','Rest','API','Caller','Helper'],    
     classifiers = [  
         # Optional
         # How mature is this project? Common values are

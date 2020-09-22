@@ -80,18 +80,18 @@ class SecureCall(object):
         """
             Public method for invoke secure post verb. 
             :param token: str. Valid token for use call    
-            :param body: json with body. It's required. Use json.dumps(body) when you invoke this method. It's needed import library json in your project.
+            :param body: json with body. It's not required. Use json.dumps(body) when you invoke this method. It's needed import library json in your project.
         """
         result = None
         try:     
             if body:           
                 result = requests.post(url=self.__cm.buildUrl(endpointPath=self.__path,endpointMethods=self.__methods,arguments=self.__args),
-                            data=body,headers=self.__cm.doHeadersBearer(token),*args, **kwargs)
-                self.__log.debug(msg='Finished Execution.',extra=self.__cm.doExtraLogger(appName='RestApiHelper',methodName='post',
-                        className='SecureCall',inheritedFrom=self.__inheritedFrom,kwargs={'StatusCode':result.status_code}))
+                            data=body,headers=self.__cm.doHeadersBearer(token),*args, **kwargs)                
             else:
-                self.__log.error(msg="Body is required.",extra=self.__cm.doExtraLogger(appName='RestApiHelper',methodName='post',
-                    className='SecureCall',inheritedFrom=self.__inheritedFrom)) 
+                result = requests.post(url=self.__cm.buildUrl(endpointPath=self.__path,endpointMethods=self.__methods,arguments=self.__args),
+                            headers=self.__cm.doHeadersBearer(token),*args, **kwargs)            
+            self.__log.debug(msg='Finished Execution.',extra=self.__cm.doExtraLogger(appName='RestApiHelper',methodName='post',
+                    className='SecureCall',inheritedFrom=self.__inheritedFrom,kwargs={'StatusCode':result.status_code})) 
 
         except Exception as ex:
             self.__log.exception(msg="%s"%str(ex),extra=self.__cm.doExtraLogger(appName='RestApiHelper',methodName='post',
