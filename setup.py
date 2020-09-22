@@ -7,7 +7,7 @@ from distutils.core import setup
 setup(
     name = 'restapihelper',
     packages = ['restapihelper'],
-    version = '0.1.2',
+    version = '0.1.3',
     description = 'Rest API Helper',
     author = 'José Fº Queija',
     author_email = 'pepekiko@gmail.com',

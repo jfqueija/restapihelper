@@ -92,8 +92,8 @@ class Common(object):
         """
         extra = dict()
         extra["AppName"] = appName
-        extra["Class"] = methodName
-        extra["Method"] = className
+        extra["Class"] = className
+        extra["Method"] = methodName
         extra["inheritedFrom"] = inheritedFrom
         if kwargs:
             extra.update(kwargs['kwargs'])
